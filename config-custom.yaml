@@ -1,0 +1,19 @@
+exporters:
+  emptyexporter:
+service:
+  pipelines:
+    traces:
+      receivers: [otlp]
+      exporters: 
+        - emptyexporter
+        - debug
+    metrics:
+      receivers: [otlp]
+      exporters: 
+        - emptyexporter
+        - debug
+    logs:
+      receivers: [otlp]
+      exporters: 
+        - emptyexporter
+        - debug

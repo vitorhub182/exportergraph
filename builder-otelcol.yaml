@@ -1,0 +1,11 @@
+dist:
+  debug_compilation: true
+  name: otelcol-custom
+  description: Local OpenTelemetry Collector binary
+  output_path: ./output
+exporters:
+  - gomod: go.opentelemetry.io/collector/exporter/debugexporter v0.116.0
+  - gomod: "github.com/vitorhub182/emptyexporter v0.0.1"
+    path: emptyexporter
+receivers:
+  - gomod: go.opentelemetry.io/collector/receiver/otlpreceiver v0.116.0
