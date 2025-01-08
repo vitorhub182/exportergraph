@@ -17,4 +17,4 @@ receivers:
 
 
 connectors:
-    - gomod: github.com/vitorhub182/exportergraph
+    - gomod: github.com/vitorhub182/exportergraph v0.0.1 

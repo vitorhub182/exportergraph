@@ -1,4 +1,4 @@
-package exampleconnector
+package exportergraph
 
 import (
 	"context"
@@ -23,7 +23,7 @@ type connectorImp struct {
 
 // newConnector is a function to create a new connector
 func newConnector(logger *zap.Logger, config component.Config) (*connectorImp, error) {
-	logger.Info("Building exampleconnector connector")
+	logger.Info("Building exportergraph connector")
 	cfg := config.(*Config)
 
 	return &connectorImp{

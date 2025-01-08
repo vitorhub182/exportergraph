@@ -1,4 +1,4 @@
-package exampleconnector
+package exportergraph
 
 import "fmt"
 

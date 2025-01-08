@@ -1,4 +1,4 @@
-package exampleconnector
+package exportergraph
 
 import (
 	"context"
@@ -11,7 +11,7 @@ import (
 var (
 	defaultVal = "request.n"
 	// this is the name used to refer to the connector in the config.yaml
-	typeStr = component.MustNewType("example")
+	typeStr = component.MustNewType("graph")
 )
 
 // NewFactory creates a factory for example connector.

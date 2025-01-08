@@ -10,8 +10,11 @@ exporters:
   # NOTE: Prior to v0.86.0 use the `logging` instead of `debug`.
   debug:
 
+processors:
+  batch:
+
 connectors:
-  example:
+   graph:
 
 service:
   pipelines:
