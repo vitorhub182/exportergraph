@@ -31,3 +31,6 @@ require (
 	google.golang.org/grpc v1.68.1 // indirect
 	google.golang.org/protobuf v1.35.2 // indirect
 )
+
+
+replace github.com/vitorhub182/exportergraph v0.0.2 => /workspaces/exportergraph

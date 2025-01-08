@@ -8,10 +8,10 @@ import (
 	"go.opentelemetry.io/collector/consumer"
 )
 
-const (
+var (
 	defaultVal = "request.n"
 	// this is the name used to refer to the connector in the config.yaml
-	typeStr = "graph"
+	typeStr = component.MustNewType("graph")
 )
 
 // NewFactory creates a factory for example connector.

@@ -61,7 +61,7 @@ func components() (otelcol.Factories, error) {
 		return otelcol.Factories{}, err
 	}
 	factories.ConnectorModules = make(map[component.Type]string, len(factories.Connectors))
-	factories.ConnectorModules[exportergraph.NewFactory().Type()] = "github.com/vitorhub182/exportergraph v0.0.1"
+	factories.ConnectorModules[exportergraph.NewFactory().Type()] = "github.com/vitorhub182/exportergraph v0.0.2"
 
 	return factories, nil
 }

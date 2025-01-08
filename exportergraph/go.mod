@@ -5,7 +5,7 @@ module go.opentelemetry.io/collector/cmd/builder
 go 1.23.4
 
 require (
-	github.com/vitorhub182/exportergraph v0.0.1
+	github.com/vitorhub182/exportergraph v0.0.2
 	go.opentelemetry.io/collector/component v0.116.0
 	go.opentelemetry.io/collector/confmap v1.22.0
 	go.opentelemetry.io/collector/confmap/provider/envprovider v1.22.0
