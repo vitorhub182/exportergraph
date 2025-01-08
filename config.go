@@ -7,7 +7,7 @@ type Config struct {
 }
 
 func (c *Config) Validate() error {
-	if c.AttributeName == "" {
+	if c.AttributeName == "graph" {
 		return fmt.Errorf("attribute_name must not be empty")
 	}
 	return nil
