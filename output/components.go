@@ -10,8 +10,9 @@ import (
 	"go.opentelemetry.io/collector/otelcol"
 	"go.opentelemetry.io/collector/processor"
 	"go.opentelemetry.io/collector/receiver"
-	debugexporter "go.opentelemetry.io/collector/exporter/debugexporter"
 	exportergraph "github.com/vitorhub182/exportergraph"
+	debugexporter "go.opentelemetry.io/collector/exporter/debugexporter"
+	batchprocessor "go.opentelemetry.io/collector/processor/batchprocessor"
 	otlpreceiver "go.opentelemetry.io/collector/receiver/otlpreceiver"
 )
 
@@ -37,28 +38,30 @@ func components() (otelcol.Factories, error) {
 
 	factories.Exporters, err = exporter.MakeFactoryMap(
 		debugexporter.NewFactory(),
-		exportergraph.NewFactory(),
 	)
 	if err != nil {
 		return otelcol.Factories{}, err
 	}
 	factories.ExporterModules = make(map[component.Type]string, len(factories.Exporters))
-	factories.ExporterModules[debugexporter.NewFactory().Type()] = "go.opentelemetry.io/collector/exporter/debugexporter v0.116.0"
-	factories.ExporterModules[exportergraph.NewFactory().Type()] = "github.com/vitorhub182/exportergraph"
+	factories.ExporterModules[debugexporter.NewFactory().Type()] = "go.opentelemetry.io/collector/exporter/debugexporter latest"
 
 	factories.Processors, err = processor.MakeFactoryMap(
+		batchprocessor.NewFactory(),
 	)
 	if err != nil {
 		return otelcol.Factories{}, err
 	}
 	factories.ProcessorModules = make(map[component.Type]string, len(factories.Processors))
+	factories.ProcessorModules[batchprocessor.NewFactory().Type()] = "go.opentelemetry.io/collector/processor/batchprocessor v0.116.0"
 
 	factories.Connectors, err = connector.MakeFactoryMap(
+		exportergraph.NewFactory(),
 	)
 	if err != nil {
 		return otelcol.Factories{}, err
 	}
 	factories.ConnectorModules = make(map[component.Type]string, len(factories.Connectors))
+	factories.ConnectorModules[exportergraph.NewFactory().Type()] = "github.com/vitorhub182/exportergraph v0.0.3"
 
 	return factories, nil
 }
